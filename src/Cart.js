@@ -6,7 +6,8 @@ class Cart extends Component{
         
     }
     render() {
-      const items=Object.keys(this.props.items).map((i,index)=> <CartItem itemInfo={this.props.items[i]} val={index}  addToCart={this.props.addToCart} removeFromCart={this.props.removeFromCart} key={index}/>);
+      const items=Object.keys(this.props.items).map((i,index)=> <CartItem itemInfo={this.props.items[i]} val={index} 
+    addAction={this.props.addAction} removeAction={this.props.removeAction} key={index}/>);
           
     return (
       <div className="App">

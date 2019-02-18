@@ -11,7 +11,7 @@ class ShowRoom extends Component{
     }
     
   render() {
-      const items=Object.keys(this.props.items).map((i,index)=> <Item itemInfo={this.props.items[i]}   addToCart={this.props.addToCart} removeFromCart={this.props.removeFromCart} key={index}/>);
+      const items=Object.keys(this.props.items).map((i,index)=> <Item itemInfo={this.props.items[i]}   addAction={this.props.addAction} removeAction={this.props.removeAction} key={index}/>);
           
     return (
       <div className="App">

@@ -17,8 +17,8 @@ class CartItem extends Component{
             <p >quantity in cart: {this.props.itemInfo.cartAmount}</p>
             <p>index {this.props.val}</p>
             
-            <button onClick={()=>this.props.addToCart(this.props.itemInfo.id)} disabled={this.props.itemInfo.quantity<=0}>add to shop cart</button>
-            <button onClick={()=>this.props.removeFromCart(this.props.itemInfo.id)} disabled={this.props.itemInfo.cartAmount<=0}>remove from cart</button>
+            <button onClick={()=>this.props.addAction(this.props.itemInfo.id)} disabled={this.props.itemInfo.quantity<=0}>add to shop cart</button>
+            <button onClick={()=>this.props.removeAction(this.props.itemInfo.id)} disabled={this.props.itemInfo.cartAmount<=0}>remove from cart</button>
             </div>
             
         )

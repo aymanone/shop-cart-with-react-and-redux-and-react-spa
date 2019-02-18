@@ -59,8 +59,8 @@ class App extends Component {
            <Link to="/showroom">ShowRoom</Link>
            <Route render={()=><div></div>}></Route>
            
-           <Route path="/cart" render={(props)=>  <Cart {...props}addToCart={this.addToCart} removeFromCart={this.removeFromCart} items={this.state.itemsInCart} />} />
-          <Route path="/showroom" render={(props)=> <ShowRoom {...props} addToCart={this.addToCart} removeFromCart={this.removeFromCart} items={this.state.items} /> } />
+           <Route path="/cart" render={(props)=>  <Cart {...props}addAction={this.props.addAction} removeAction={this.props.removeAction} items={this.props.itemsInCart} />} />
+          <Route path="/showroom" render={(props)=> <ShowRoom {...props} addAction={this.props.addAction} removeAction={this.props.removeAction} items={this.props.items} /> } />
          
          
            </div>
@@ -78,5 +78,5 @@ const mapDispatchToProps = dispatch => ({
   addAction: (id) => dispatch(addAction(id)),
 removeAction:(id)=>dispatch(removeAction(id))
 });
-//export default connect(App);
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+//export default App;
