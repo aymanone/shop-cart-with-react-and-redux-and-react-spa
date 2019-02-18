@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { connect } from "react-redux";
+import addAction from "./addAction";
+import removeAction from "./removeAction";
 import logo from './logo.svg';
 import './App.css';
 import ShowRoom from "./ShowRoom";
@@ -8,8 +11,7 @@ class App extends Component {
     constructor(props){
         super(props);
            this.state={
-            items:{...this.props.items},
-            itemsInCart:{},wholePrice:0
+            ...this.props.items
         };
         this.addToCart=this.addToCart.bind(this);
         this.removeFromCart=this.removeFromCart.bind(this);
@@ -55,7 +57,7 @@ class App extends Component {
            
            <Link to="/cart">Cart &nbsp;</Link>
            <Link to="/showroom">ShowRoom</Link>
-           <Route render={()=><h1>Home</h1>}></Route>
+           <Route render={()=><div></div>}></Route>
            
            <Route path="/cart" render={(props)=>  <Cart {...props}addToCart={this.addToCart} removeFromCart={this.removeFromCart} items={this.state.itemsInCart} />} />
           <Route path="/showroom" render={(props)=> <ShowRoom {...props} addToCart={this.addToCart} removeFromCart={this.removeFromCart} items={this.state.items} /> } />
@@ -69,5 +71,12 @@ class App extends Component {
        );
    }
 }
-
+const mapStateToProps = state => ({
+  ...state
+});
+const mapDispatchToProps = dispatch => ({
+  addAction: (id) => dispatch(addAction(id)),
+removeAction:(id)=>dispatch(removeAction(id))
+});
+//export default connect(App);
 export default App;
